@@ -31,6 +31,7 @@ addNoteBtn.addEventListener('click', function (e) {
     localStorage.setItem('notes', JSON.stringify(notesObj));
 
     addTxtArea.value = '';
+    addTitle.value = '';
 
     showNotes();
 
