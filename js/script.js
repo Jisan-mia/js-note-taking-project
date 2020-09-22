@@ -8,6 +8,7 @@ showNotes();
 
 addNoteBtn.addEventListener('click', function (e) {
     let addTxtArea = document.getElementById('add-txt-area');
+    let addTitle = document.querySelector('#addTitle');
     let notes = localStorage.getItem('notes');
 
 
@@ -16,8 +17,13 @@ addNoteBtn.addEventListener('click', function (e) {
     } else {
         notesObj = JSON.parse(notes);
     }
+    let myObj = {
+        title: addTitle.value,
+        text: addTxtArea.value
+    }
+
     if (addTxtArea.value != '') {
-        notesObj.push(addTxtArea.value);
+        notesObj.push(myObj);
     } else {
         alert('Write something then add..')
     }
@@ -25,6 +31,7 @@ addNoteBtn.addEventListener('click', function (e) {
     localStorage.setItem('notes', JSON.stringify(notesObj));
 
     addTxtArea.value = '';
+    addTitle.value = '';
 
     showNotes();
 
@@ -40,13 +47,14 @@ function showNotes() {
     } else {
         notesObj = JSON.parse(notes);
     }
+    let addSub = document.getElementById('add-subtitle')
     let html = "";
     notesObj.forEach(function (element, index) {
         html += `
             <div class="noteCard card text-white  bg-secondary mb-3" ">
-                <div class="card-header">Note ${index + 1}</div>
+                <div class="card-header">${element.title}</div>
                 <div class="card-body">
-                    <p class="card-text"> ${element} </p>
+                    <p class="card-text"> ${element.text} </p>
                     <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-danger">Delete Note</button>
                 </div>
             </div>

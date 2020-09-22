@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark text-white bg-dark">
+        <a class="navbar-brand" href="#">Take Note</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,9 +34,11 @@
         <div class="card">
             <h5 class="card-header">Add a Note</h5>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <input id="addTitle" class="form-control title mb-3" id="addTitle" placeholder="Add title">
+
                 <div class="form-group">
-                    <textarea class="form-control" id="add-txt-area" rows="3"></textarea>
+
+                    <textarea class="form-control" id="add-txt-area" rows="3" placeholder="Your Note"></textarea>
                 </div>
                 <button class="btn btn-primary" id="add-note-btn">Add Note </button>
             </div>
